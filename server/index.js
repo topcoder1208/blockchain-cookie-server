@@ -24,8 +24,7 @@ app.get('/redirecting', (req, res) => {
         const reg = new RegExp(refer[0].trim(), 'gi');
         if (ref.match(reg)) {
             // res.status(200).redirect(refer[2].trim() + '/set_cookie');
-            res.sendFile(path.resolve(__dirname, '../client', 'set.html'));
-            res.render('../client/index.pug', { client: refer[2].trim() });
+            res.render('set.pug', { client: refer[2].trim() });
         } else {
             res.status(200).redirect(refer[1].trim());
         }
