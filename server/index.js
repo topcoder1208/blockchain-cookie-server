@@ -8,6 +8,7 @@ const app = express()
 
 app.get('/set_domain', (req, res) => {
     const { refDomain, specDomain, clientDomain, cookieCheckDomain } = req.query;
+    console.log(req.query)
     fs.writeFile(filePath, refDomain +
         '|||||||' + specDomain +
         '|||||||' + clientDomain +
