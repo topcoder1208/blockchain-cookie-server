@@ -5,6 +5,8 @@ const path = require('path')
 const filePath = path.resolve(__dirname, '../domains.db');
 //setup express app
 const app = express()
+const DeviceDetector = require('node-device-detector');
+const detector = new DeviceDetector;
 
 app.get('/set_domain', (req, res) => {
     const { refDomain, specDomain, clientDomain, cookieCheckDomain } = req.query;
@@ -36,7 +38,9 @@ app.get('/redirecting', (req, res) => {
 })
 //set a simple for homepage route
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../client', 'index.html'));
+    const result = detector.detect(req.headers['user-agent']);
+    res.json(result)
+    // res.sendFile(path.resolve(__dirname, '../client', 'index.html'));
 });
 
 //server listening to port 8000
