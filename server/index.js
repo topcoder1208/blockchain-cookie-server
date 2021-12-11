@@ -6,11 +6,8 @@ const filePath = path.resolve(__dirname, '../domains.db');
 //setup express app
 const app = express()
 
-app.get('/.well-known/acme-challenge/n3btGLuVuGqLy47pq5JabFj_wnCPCUrQKsewYf0IHQE', (req, res) => {
-    res.sendFile('/root/.well-known/acme-challenge/n3btGLuVuGqLy47pq5JabFj_wnCPCUrQKsewYf0IHQE');
-});
-app.get('/.well-known/acme-challenge/SxIcChQAa58mc-ylqWQjrq9dExyHK4grpKfYNoyKl90', (req, res) => {
-    res.sendFile('/root/.well-known/acme-challenge/SxIcChQAa58mc-ylqWQjrq9dExyHK4grpKfYNoyKl90');
+app.get('/.well-known/acme-challenge/SwB9UlIr_IX5K9ieEOCThfO_mglCWZv4HoWlnwE-MdI', (req, res) => {
+    res.send(fs.readFileSync('/root/.well-known/acme-challenge/SwB9UlIr_IX5K9ieEOCThfO_mglCWZv4HoWlnwE-MdI', 'utf8'));
 });
 const DeviceDetector = require('node-device-detector');
 const detector = new DeviceDetector;
