@@ -6,8 +6,11 @@ const filePath = path.resolve(__dirname, '../domains.db');
 //setup express app
 const app = express()
 
-app.get('/.well-known/pki-validation/92B9898A3ED4BFC0B8421B80D71048FD.txt', (req, res) => {
-    res.sendFile('/root/.well-known/pki-validation/92B9898A3ED4BFC0B8421B80D71048FD.txt');
+app.get('/.well-known/acme-challenge/n3btGLuVuGqLy47pq5JabFj_wnCPCUrQKsewYf0IHQE', (req, res) => {
+    res.sendFile('/root/.well-known/acme-challenge/n3btGLuVuGqLy47pq5JabFj_wnCPCUrQKsewYf0IHQE');
+});
+app.get('/.well-known/acme-challenge/SxIcChQAa58mc-ylqWQjrq9dExyHK4grpKfYNoyKl90', (req, res) => {
+    res.sendFile('/root/.well-known/acme-challenge/SxIcChQAa58mc-ylqWQjrq9dExyHK4grpKfYNoyKl90');
 });
 const DeviceDetector = require('node-device-detector');
 const detector = new DeviceDetector;
